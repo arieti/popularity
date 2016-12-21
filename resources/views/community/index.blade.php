@@ -11,6 +11,14 @@
 					<span>&mdash; {{ $channel->title }}</span>
 				@endif
 			</h3>
+			<ul class="nav nav-tabs">
+				<li class="{{ request()->exists('popular') ? '' : 'active' }}">
+					<a href="{{ request()->url() }}">Most recent</a>
+				</li>
+				<li class="{{ request()->exists('popular') ? 'active' : '' }}">
+					<a href="?popular">Most popular</a>
+				</li>
+			</ul>
 			@include('community.list')
 		</div>
 		@include('community.add-link')

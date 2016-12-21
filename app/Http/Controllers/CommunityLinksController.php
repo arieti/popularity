@@ -6,16 +6,14 @@ use App\Channel;
 use App\CommunityLink;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommunityLinkForm;
+use App\Queries\CommunityLinksQuery;
 use App\Exceptions\CommunityLinkAlreadySubmitted;
 
 class CommunityLinksController extends Controller
 {
     public function index(Channel $channel = null)
     {
-    	$links = CommunityLink::forChannel($channel)
-            ->where('approved', 1)
-            ->latest('updated_at')
-            ->paginate(25);
+    	$links = (new CommunityLinksQuery)->get($channel);
 
     	$channels = Channel::orderBy('title', 'asc')->get();
     	return view('community.index', compact('links', 'channels', 'channel'));

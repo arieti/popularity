@@ -7692,4 +7692,9 @@ button.close {
   margin-right: 1em;
 }
 
+.communityLink > form {
+  display: inline-block;
+  margin-right: 1em;
+}
+
 /*# sourceMappingURL=all.css.map */
