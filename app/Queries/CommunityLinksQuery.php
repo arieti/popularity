@@ -15,6 +15,6 @@ class CommunityLinksQuery
             ->forChannel($channel)
             ->where('approved', 1)
             ->orderBy($orderBy, 'desc')
-            ->paginate(2);
+            ->paginate(20);
 	}
 }
